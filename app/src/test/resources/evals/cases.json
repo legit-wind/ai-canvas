@@ -1,0 +1,2396 @@
+{
+  "note": "Hand-written reference answers for typical requests (not recorded live model output). The test checks that good answers pass the UI contract and bad ones are caught.",
+  "good": [
+    {
+      "prompt": "Track my water today",
+      "expect": [
+        "counter"
+      ],
+      "answer": {
+        "reply": "Added a water tracker.",
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Water",
+                  "style": "title"
+                },
+                {
+                  "type": "counter",
+                  "label": "Glasses",
+                  "value": 0,
+                  "max": 8,
+                  "step": 1
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Grocery list: milk, eggs, bread",
+      "expect": [
+        "check",
+        "input"
+      ],
+      "answer": {
+        "reply": "Here's your list.",
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Groceries",
+                  "style": "title"
+                },
+                {
+                  "type": "check",
+                  "label": "Milk"
+                },
+                {
+                  "type": "check",
+                  "label": "Eggs"
+                },
+                {
+                  "type": "check",
+                  "label": "Bread"
+                },
+                {
+                  "type": "input",
+                  "placeholder": "Add item…",
+                  "add": "check"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Pomodoro timer 25 min",
+      "expect": [
+        "timer"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Focus",
+                  "style": "title"
+                },
+                {
+                  "type": "timer",
+                  "seconds": 1500,
+                  "label": "Pomodoro"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Countdown to my exam on 20 Nov",
+      "expect": [
+        "timer"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "DBMS exam",
+                  "style": "title"
+                },
+                {
+                  "type": "timer",
+                  "to": "2026-11-20T09:00"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Budget 5000, spent 3200",
+      "expect": [
+        "metric",
+        "progress"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "October budget",
+                  "style": "title"
+                },
+                {
+                  "type": "metric",
+                  "value": "₹1,800",
+                  "label": "left of ₹5,000"
+                },
+                {
+                  "type": "progress",
+                  "value": 0.64,
+                  "label": "Spent"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Attendance ring 78%",
+      "expect": [
+        "progress"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Attendance",
+                  "style": "title"
+                },
+                {
+                  "type": "progress",
+                  "shape": "ring",
+                  "value": 0.78,
+                  "label": "78%"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Show weekly study hours",
+      "expect": [
+        "chart"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "full",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Study hours",
+                  "style": "title"
+                },
+                {
+                  "type": "chart",
+                  "kind": "bar",
+                  "labels": [
+                    "M",
+                    "T",
+                    "W",
+                    "T",
+                    "F"
+                  ],
+                  "values": [
+                    2,
+                    3,
+                    1.5,
+                    4,
+                    2
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Habit tracker gym, reading",
+      "expect": [
+        "check"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Habits",
+                  "style": "title"
+                },
+                {
+                  "type": "check",
+                  "label": "Gym"
+                },
+                {
+                  "type": "check",
+                  "label": "Read 20 pages"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Mood today",
+      "expect": [
+        "choice"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Mood",
+                  "style": "title"
+                },
+                {
+                  "type": "choice",
+                  "question": "How do you feel?",
+                  "options": [
+                    "Great",
+                    "Okay",
+                    "Low"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Useful links for DSA",
+      "expect": [
+        "list"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "DSA links",
+                  "style": "title"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "NeetCode 150",
+                      "link": "https://neetcode.io"
+                    },
+                    {
+                      "title": "CP-Algorithms",
+                      "link": "https://cp-algorithms.com"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Log expense button",
+      "expect": [
+        "input"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Expenses",
+                  "style": "title"
+                },
+                {
+                  "type": "input",
+                  "placeholder": "Log an expense…",
+                  "prompt": "Log expense"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Quick note",
+      "expect": [
+        "text"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Note",
+                  "style": "title"
+                },
+                {
+                  "type": "text",
+                  "text": "Return library book Friday"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Remind me to call mom at 7pm",
+      "expect": [],
+      "answer": {
+        "reply": "I'll remind you at 7 PM.",
+        "remind": [
+          {
+            "at": "2026-10-31T19:00",
+            "text": "Call mom"
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "I live in Pune",
+      "expect": [],
+      "answer": {
+        "reply": "Got it.",
+        "remember": [
+          "Lives in Pune"
+        ]
+      }
+    },
+    {
+      "prompt": "What's 1200 split 4 ways",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "calc",
+            "query": "1200/4"
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "What's on my calendar in December",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "calendar",
+            "from": "2026-12-01",
+            "to": "2027-01-01"
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Weather in Pune",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "weather",
+            "query": "Pune"
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Remove the water card",
+      "expect": [],
+      "answer": {
+        "reply": "Removed.",
+        "remove": [
+          "e1"
+        ]
+      }
+    },
+    {
+      "prompt": "Make the budget card blue",
+      "expect": [],
+      "answer": {
+        "update": [
+          {
+            "id": "e2",
+            "tone": "blue"
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Daily planner",
+      "expect": [
+        "stack",
+        "check",
+        "button"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "full",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Today",
+                  "style": "title"
+                },
+                {
+                  "type": "stack",
+                  "direction": "row",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Classes 9–4"
+                    },
+                    {
+                      "type": "text",
+                      "text": "Gym 6 PM"
+                    }
+                  ]
+                },
+                {
+                  "type": "check",
+                  "label": "Submit OS assignment"
+                },
+                {
+                  "type": "button",
+                  "label": "Plan tomorrow",
+                  "prompt": "Plan my tomorrow",
+                  "style": "filled"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Hello",
+      "expect": [],
+      "answer": {
+        "reply": "Hi! Tell me what to track."
+      }
+    },
+    {
+      "prompt": "Forget where I live",
+      "expect": [],
+      "answer": {
+        "forget": [
+          "m1"
+        ],
+        "reply": "Forgotten."
+      }
+    },
+    {
+      "prompt": "Medicine at 9 AM and 9 PM",
+      "expect": [
+        "check"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "rose",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "💊 Medicine",
+                  "style": "title"
+                },
+                {
+                  "type": "check",
+                  "label": "9 AM dose"
+                },
+                {
+                  "type": "check",
+                  "label": "9 PM dose"
+                }
+              ]
+            }
+          }
+        ],
+        "remind": [
+          {
+            "at": "2026-11-01T09:00",
+            "text": "Take medicine",
+            "repeat": "daily"
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Workout today",
+      "expect": [
+        "check",
+        "counter"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "teal",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🏋️ Workout",
+                  "style": "title"
+                },
+                {
+                  "type": "check",
+                  "label": "Push-ups 3×15"
+                },
+                {
+                  "type": "counter",
+                  "label": "Plank minutes",
+                  "value": 0,
+                  "goal": 5
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Track sleep this week",
+      "expect": [
+        "chart"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "full",
+            "tone": "violet",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "😴 Sleep",
+                  "style": "title"
+                },
+                {
+                  "type": "chart",
+                  "kind": "bar",
+                  "labels": [
+                    "Mon",
+                    "Tue",
+                    "Wed"
+                  ],
+                  "values": [
+                    7,
+                    6.5,
+                    8
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Mood journal",
+      "expect": [
+        "choice",
+        "input"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "rose",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🙂 Mood",
+                  "style": "title"
+                },
+                {
+                  "type": "choice",
+                  "question": "How was today?",
+                  "options": [
+                    "Great",
+                    "Okay",
+                    "Low"
+                  ]
+                },
+                {
+                  "type": "input",
+                  "placeholder": "One line about today…",
+                  "prompt": "Journal"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Friends' birthdays",
+      "expect": [
+        "list",
+        "timer"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "rose",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🎂 Birthdays",
+                  "style": "title"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "Ravi · 12 Nov"
+                    },
+                    {
+                      "title": "Asha · 3 Dec"
+                    }
+                  ]
+                },
+                {
+                  "type": "timer",
+                  "to": "2026-11-12T00:00"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Packing for trip home",
+      "expect": [
+        "check",
+        "input"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "blue",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🧳 Packing",
+                  "style": "title"
+                },
+                {
+                  "type": "check",
+                  "label": "Charger"
+                },
+                {
+                  "type": "check",
+                  "label": "ID card"
+                },
+                {
+                  "type": "input",
+                  "placeholder": "Add item…",
+                  "add": "check"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Reading tracker",
+      "expect": [
+        "progress",
+        "counter"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "violet",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📖 Atomic Habits",
+                  "style": "title"
+                },
+                {
+                  "type": "progress",
+                  "value": 0.42,
+                  "label": "128 / 306 pages"
+                },
+                {
+                  "type": "counter",
+                  "label": "Pages today",
+                  "value": 0,
+                  "step": 5
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Subscriptions",
+      "expect": [
+        "list",
+        "metric"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "amber",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🔁 Subscriptions",
+                  "style": "title"
+                },
+                {
+                  "type": "metric",
+                  "value": "₹548",
+                  "label": "per month"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "Spotify · renews 5 Nov"
+                    },
+                    {
+                      "title": "Netflix · renews 18 Nov"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Monthly goals",
+      "expect": [
+        "progress"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "green",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🎯 Goals",
+                  "style": "title"
+                },
+                {
+                  "type": "progress",
+                  "value": 0.3,
+                  "label": "Solve 60 DSA problems"
+                },
+                {
+                  "type": "progress",
+                  "value": 0.5,
+                  "label": "Run 40 km"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Assignments due",
+      "expect": [
+        "check",
+        "input"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "amber",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📝 Assignments",
+                  "style": "title"
+                },
+                {
+                  "type": "check",
+                  "label": "OS lab record · Mon"
+                },
+                {
+                  "type": "input",
+                  "placeholder": "Add item…",
+                  "add": "check"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Study timetable",
+      "expect": [
+        "stack",
+        "text"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "full",
+            "tone": "blue",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📚 This week",
+                  "style": "title"
+                },
+                {
+                  "type": "stack",
+                  "direction": "row",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Mon"
+                    },
+                    {
+                      "type": "text",
+                      "text": "DBMS 6–8 PM"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Split ₹1,200 between 4",
+      "expect": [
+        "metric"
+      ],
+      "answer": {
+        "create": [
+          {
+            "size": "half",
+            "tone": "amber",
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🧾 Dinner split",
+                  "style": "title"
+                },
+                {
+                  "type": "metric",
+                  "value": "₹300",
+                  "label": "each, 4 people"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "📸",
+      "prompt": "[photo of a timetable] Turn this photo into cards",
+      "expect": [
+        "stack",
+        "text"
+      ],
+      "answer": {
+        "reply": "I read your timetable.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "blue",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📸 Timetable from your photo",
+                  "style": "title"
+                },
+                {
+                  "type": "stack",
+                  "direction": "row",
+                  "spread": true,
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Mon"
+                    },
+                    {
+                      "type": "text",
+                      "text": "DBMS 9:00 AM"
+                    }
+                  ]
+                },
+                {
+                  "type": "stack",
+                  "direction": "row",
+                  "spread": true,
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Tue"
+                    },
+                    {
+                      "type": "text",
+                      "text": "OS 11:00 AM"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "📸",
+      "prompt": "[photo of a receipt] Turn this photo into cards",
+      "expect": [
+        "metric",
+        "list"
+      ],
+      "answer": {
+        "reply": "Here's the receipt.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "amber",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📸 Receipt · Cafe Coffee Day",
+                  "style": "title"
+                },
+                {
+                  "type": "metric",
+                  "label": "Total",
+                  "value": "₹486"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "Cappuccino",
+                      "meta": "₹210"
+                    },
+                    {
+                      "title": "Sandwich",
+                      "meta": "₹276"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "owes",
+      "prompt": "Split ₹2,340 between 4; Ravi paid ₹500",
+      "expect": [
+        "metric",
+        "list"
+      ],
+      "answer": {
+        "reply": "Each share is ₹585.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "amber",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🧾 Dinner split",
+                  "style": "title"
+                },
+                {
+                  "type": "metric",
+                  "label": "Each share",
+                  "value": "₹585"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "Asha owes you ₹585"
+                    },
+                    {
+                      "title": "Kiran owes you ₹585"
+                    },
+                    {
+                      "title": "Ravi owes you ₹85"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "owes",
+      "prompt": "Split ₹2,340 between 4 (tool step)",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "calc",
+            "query": "2340/4"
+          },
+          {
+            "kind": "calc",
+            "query": "585-500"
+          }
+        ]
+      }
+    },
+    {
+      "starter": "exam",
+      "prompt": "Exams on 1 Dec: countdown, plan, remind 7 PM",
+      "expect": [
+        "timer",
+        "list"
+      ],
+      "answer": {
+        "reply": "Countdown and plan are ready; I'll remind you at 7:00 PM.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "rose",
+            "importance": 80,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "⏳ Semester exams",
+                  "style": "title"
+                },
+                {
+                  "type": "timer",
+                  "to": "2026-12-01T09:00",
+                  "style": "display"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "DBMS normalisation",
+                      "meta": "Today"
+                    },
+                    {
+                      "title": "OS scheduling",
+                      "meta": "Tomorrow"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": "🔔 7:00 PM daily",
+                  "style": "caption"
+                }
+              ]
+            }
+          }
+        ],
+        "remind": [
+          {
+            "at": "2026-11-01T19:00",
+            "text": "Study time: today's exam topic",
+            "repeat": "daily"
+          }
+        ]
+      }
+    },
+    {
+      "starter": "dose",
+      "prompt": "Medicine 9 AM and 9 PM with taken log",
+      "expect": [
+        "check"
+      ],
+      "answer": {
+        "reply": "I'll remind you at 9:00 AM and 9:00 PM.",
+        "create": [
+          {
+            "size": "half",
+            "tone": "rose",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "💊 Medicine",
+                  "style": "title"
+                },
+                {
+                  "type": "check",
+                  "label": "9:00 AM dose",
+                  "daily": true
+                },
+                {
+                  "type": "check",
+                  "label": "9:00 PM dose",
+                  "daily": true
+                },
+                {
+                  "type": "text",
+                  "text": "🔔 9:00 AM · 9:00 PM",
+                  "style": "caption"
+                }
+              ]
+            }
+          }
+        ],
+        "remind": [
+          {
+            "at": "2026-11-01T09:00",
+            "text": "Take your 9 AM dose",
+            "repeat": "daily"
+          },
+          {
+            "at": "2026-11-01T21:00",
+            "text": "Take your 9 PM dose",
+            "repeat": "daily"
+          }
+        ]
+      }
+    },
+    {
+      "starter": "plan",
+      "prompt": "Plan my day around calendar and weather (tool step)",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "weather",
+            "query": "Hyderabad"
+          }
+        ]
+      }
+    },
+    {
+      "starter": "plan",
+      "prompt": "Plan my day around calendar and weather",
+      "expect": [
+        "list",
+        "text"
+      ],
+      "answer": {
+        "reply": "Here's your day.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "blue",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🌦️ Today's plan",
+                  "style": "title"
+                },
+                {
+                  "type": "text",
+                  "text": "Rain likely after 4:00 PM, carry an umbrella",
+                  "style": "caption"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "DBMS lecture",
+                      "meta": "10:00 AM"
+                    },
+                    {
+                      "title": "Library study",
+                      "meta": "2:00 PM"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "headline",
+      "prompt": "News digest India and tech",
+      "expect": [
+        "list"
+      ],
+      "answer": {
+        "reply": "Today's headlines.",
+        "create": [
+          {
+            "size": "twothirds",
+            "tone": "violet",
+            "importance": 35,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📰 News headlines",
+                  "style": "title"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "ISRO plans new launch",
+                      "link": "https://news.google.com/"
+                    },
+                    {
+                      "title": "New UPI rules from today"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "score",
+      "prompt": "Teach me about black holes and quiz me",
+      "expect": [
+        "choice",
+        "text"
+      ],
+      "answer": {
+        "reply": "Quiz time!",
+        "create": [
+          {
+            "size": "full",
+            "tone": "violet",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🧠 Black holes",
+                  "style": "title"
+                },
+                {
+                  "type": "text",
+                  "text": "A region where gravity is so strong that nothing, not even light, escapes.",
+                  "style": "body"
+                },
+                {
+                  "type": "choice",
+                  "question": "What can escape a black hole?",
+                  "options": [
+                    "Light",
+                    "Nothing",
+                    "Sound"
+                  ],
+                  "answer": 1,
+                  "explain": "Not even light escapes."
+                },
+                {
+                  "type": "text",
+                  "text": "Score",
+                  "score": true,
+                  "style": "caption"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "convert",
+      "prompt": "Converter USD to INR (tool step)",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "fx",
+            "query": "100 USD INR"
+          }
+        ]
+      }
+    },
+    {
+      "starter": "convert",
+      "prompt": "Converter USD to INR",
+      "expect": [
+        "metric",
+        "input"
+      ],
+      "answer": {
+        "reply": "Today's rate is in.",
+        "create": [
+          {
+            "size": "half",
+            "tone": "teal",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "💱 Convert",
+                  "style": "title"
+                },
+                {
+                  "type": "metric",
+                  "label": "100 USD",
+                  "value": "₹8,420",
+                  "note": "today's rate"
+                },
+                {
+                  "type": "input",
+                  "placeholder": "e.g. 5 km in miles",
+                  "prompt": "Convert"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "category",
+      "prompt": "Expense log with category chart",
+      "expect": [
+        "metric",
+        "chart",
+        "input"
+      ],
+      "answer": {
+        "reply": "Logged.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "amber",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📊 Expenses by category",
+                  "style": "title"
+                },
+                {
+                  "type": "metric",
+                  "label": "Today",
+                  "value": "₹320"
+                },
+                {
+                  "type": "chart",
+                  "kind": "bar",
+                  "labels": [
+                    "Food",
+                    "Travel"
+                  ],
+                  "values": [
+                    200,
+                    120
+                  ]
+                },
+                {
+                  "type": "input",
+                  "placeholder": "lunch 120 food",
+                  "prompt": "Log expense"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "streak",
+      "prompt": "Habit streaks water and exercise",
+      "expect": [
+        "counter"
+      ],
+      "answer": {
+        "reply": "Streaks start today.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "green",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🔥 Habit streaks",
+                  "style": "title"
+                },
+                {
+                  "type": "counter",
+                  "label": "Water",
+                  "value": 0,
+                  "goal": 8,
+                  "unit": "glasses",
+                  "daily": true
+                },
+                {
+                  "type": "counter",
+                  "label": "Exercise",
+                  "value": 0,
+                  "goal": 30,
+                  "step": 10,
+                  "unit": "min",
+                  "daily": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "session",
+      "prompt": "Pomodoro with session log",
+      "expect": [
+        "timer"
+      ],
+      "answer": {
+        "reply": "Focus timer ready.",
+        "create": [
+          {
+            "size": "half",
+            "tone": "rose",
+            "importance": 70,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🍅 Focus session",
+                  "style": "title"
+                },
+                {
+                  "type": "timer",
+                  "minutes": 25,
+                  "label": "Focus",
+                  "log": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "packing",
+      "prompt": "Manali 3 days packing (tool step)",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "weather",
+            "query": "Manali"
+          }
+        ]
+      }
+    },
+    {
+      "starter": "packing",
+      "prompt": "Manali 3 days packing",
+      "expect": [
+        "check",
+        "input"
+      ],
+      "answer": {
+        "reply": "It'll be 2–12°C, so pack warm.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "teal",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🧳 Manali packing",
+                  "style": "title"
+                },
+                {
+                  "type": "text",
+                  "text": "Cold: 2–12°C, snow likely",
+                  "style": "caption"
+                },
+                {
+                  "type": "check",
+                  "label": "Thermal innerwear"
+                },
+                {
+                  "type": "check",
+                  "label": "Gloves"
+                },
+                {
+                  "type": "input",
+                  "placeholder": "Add item…",
+                  "add": "check"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "birthday",
+      "prompt": "Birthdays from calendar (tool step)",
+      "expect": [],
+      "answer": {
+        "lookup": [
+          {
+            "kind": "calendar",
+            "from": "2026-11-01",
+            "to": "2027-01-31"
+          }
+        ]
+      }
+    },
+    {
+      "starter": "birthday",
+      "prompt": "Birthdays from calendar",
+      "expect": [
+        "timer"
+      ],
+      "answer": {
+        "reply": "Found 2 birthdays.",
+        "create": [
+          {
+            "size": "twothirds",
+            "tone": "rose",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🎂 Birthdays",
+                  "style": "title"
+                },
+                {
+                  "type": "stack",
+                  "direction": "row",
+                  "spread": true,
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Ravi"
+                    },
+                    {
+                      "type": "timer",
+                      "to": "2026-11-12T00:00",
+                      "style": "body"
+                    }
+                  ]
+                },
+                {
+                  "type": "stack",
+                  "direction": "row",
+                  "spread": true,
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Asha"
+                    },
+                    {
+                      "type": "timer",
+                      "to": "2026-12-03T00:00",
+                      "style": "body"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "pros",
+      "prompt": "Laptop now or wait",
+      "expect": [
+        "stack",
+        "text"
+      ],
+      "answer": {
+        "reply": "My pick: wait.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "violet",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "⚖️ Laptop: now or wait? Pros & cons",
+                  "style": "title"
+                },
+                {
+                  "type": "stack",
+                  "direction": "row",
+                  "children": [
+                    {
+                      "type": "stack",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "✅ Now",
+                          "style": "label"
+                        },
+                        {
+                          "type": "text",
+                          "text": "Use it this semester"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "stack",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "⚠️ Wait",
+                          "style": "label"
+                        },
+                        {
+                          "type": "text",
+                          "text": "New models in 3 months"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": "Pick: wait, if your current laptop survives exams.",
+                  "weight": "bold"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "remember",
+      "prompt": "What do you know about me",
+      "expect": [
+        "list"
+      ],
+      "answer": {
+        "reply": "Here's what I remember; tell me anything to fix.",
+        "create": [
+          {
+            "size": "twothirds",
+            "tone": "blue",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "🪪 What I remember",
+                  "style": "title"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "Studies CSE at JNTU Hyderabad"
+                    },
+                    {
+                      "title": "Exams start 1 December"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "journal",
+      "prompt": "Journal and mood chart",
+      "expect": [
+        "choice",
+        "input",
+        "chart"
+      ],
+      "answer": {
+        "reply": "Journal ready.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "violet",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📔 Journal",
+                  "style": "title"
+                },
+                {
+                  "type": "choice",
+                  "question": "How's your mood?",
+                  "options": [
+                    "😄",
+                    "🙂",
+                    "😐",
+                    "😔"
+                  ]
+                },
+                {
+                  "type": "input",
+                  "placeholder": "One line about today…",
+                  "prompt": "Journal"
+                },
+                {
+                  "type": "chart",
+                  "kind": "line",
+                  "labels": [
+                    "Mon",
+                    "Tue"
+                  ],
+                  "values": [
+                    4,
+                    3
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "geo:",
+      "prompt": "Map links",
+      "expect": [
+        "button"
+      ],
+      "answer": {
+        "reply": "Tap to open Maps.",
+        "create": [
+          {
+            "size": "half",
+            "tone": "teal",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📍 Places",
+                  "style": "title"
+                },
+                {
+                  "type": "button",
+                  "label": "College",
+                  "open": "geo:0,0?q=JNTU Hyderabad"
+                },
+                {
+                  "type": "button",
+                  "label": "Nearest hospital",
+                  "open": "geo:0,0?q=hospital near me"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "starter": "tel:",
+      "prompt": "Quick call Mom 98480 12345",
+      "expect": [
+        "button"
+      ],
+      "answer": {
+        "reply": "Tap to call.",
+        "create": [
+          {
+            "size": "half",
+            "tone": "green",
+            "importance": 60,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "📞 Quick call",
+                  "style": "title"
+                },
+                {
+                  "type": "button",
+                  "label": "Call Mom",
+                  "open": "tel:+919848012345",
+                  "color": "green"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "Order biryani on Swiggy for me",
+      "expect": [],
+      "answer": {
+        "reply": "I can't order food from here, but I can make a reminder or a shopping list for it."
+      }
+    },
+    {
+      "prompt": "Send a WhatsApp to Ravi",
+      "expect": [],
+      "answer": {
+        "reply": "I can't send messages, but I can add a call button for Ravi if you tell me his number."
+      }
+    },
+    {
+      "starter": "📸",
+      "prompt": "[photo of the Mon–Fri timetable] this is my time table create something",
+      "expect": [
+        "list"
+      ],
+      "answer": {
+        "reply": "Here's your week. Tap it to open a day.",
+        "create": [
+          {
+            "size": "full",
+            "tone": "blue",
+            "importance": 75,
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "list",
+                  "kind": "schedule",
+                  "title": "📸 Week timetable",
+                  "days": [
+                    {
+                      "day": "MON",
+                      "slots": [
+                        {
+                          "time": "8:00-8:50",
+                          "subject": "AI"
+                        },
+                        {
+                          "time": "9:00-9:50",
+                          "subject": "CS"
+                        },
+                        {
+                          "time": "10:00-10:50",
+                          "subject": "CE"
+                        },
+                        {
+                          "time": "11:00-11:50",
+                          "subject": "VLSI"
+                        },
+                        {
+                          "time": "1:00-1:50",
+                          "subject": "Lunch"
+                        },
+                        {
+                          "time": "2:00-3:50",
+                          "subject": "DSP LAB"
+                        }
+                      ]
+                    },
+                    {
+                      "day": "TUE",
+                      "slots": [
+                        {
+                          "time": "9:00-9:50",
+                          "subject": "CE"
+                        },
+                        {
+                          "time": "10:00-10:50",
+                          "subject": "VLSI"
+                        },
+                        {
+                          "time": "11:00-11:50",
+                          "subject": "DSP"
+                        },
+                        {
+                          "time": "1:00-1:50",
+                          "subject": "Lunch"
+                        },
+                        {
+                          "time": "2:00-4:50",
+                          "subject": "CE LAB"
+                        },
+                        {
+                          "time": "5:00-5:50",
+                          "subject": "AI"
+                        }
+                      ]
+                    },
+                    {
+                      "day": "WED",
+                      "slots": [
+                        {
+                          "time": "9:00-9:50",
+                          "subject": "VLSI"
+                        },
+                        {
+                          "time": "10:00-10:50",
+                          "subject": "DSP"
+                        },
+                        {
+                          "time": "11:00-11:50",
+                          "subject": "HM"
+                        },
+                        {
+                          "time": "12:00-12:50",
+                          "subject": "CS"
+                        },
+                        {
+                          "time": "1:00-1:50",
+                          "subject": "Lunch"
+                        }
+                      ]
+                    },
+                    {
+                      "day": "THU",
+                      "slots": [
+                        {
+                          "time": "8:00-8:50",
+                          "subject": "AI"
+                        },
+                        {
+                          "time": "9:00-9:50",
+                          "subject": "DSP"
+                        },
+                        {
+                          "time": "10:00-10:50",
+                          "subject": "HM"
+                        },
+                        {
+                          "time": "11:00-11:50",
+                          "subject": "CS"
+                        },
+                        {
+                          "time": "12:00-12:50",
+                          "subject": "CE"
+                        },
+                        {
+                          "time": "1:00-1:50",
+                          "subject": "Lunch"
+                        }
+                      ]
+                    },
+                    {
+                      "day": "FRI",
+                      "slots": [
+                        {
+                          "time": "9:00-9:50",
+                          "subject": "HM"
+                        },
+                        {
+                          "time": "10:00-10:50",
+                          "subject": "CS"
+                        },
+                        {
+                          "time": "11:00-11:50",
+                          "subject": "CE"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "bad": [
+    {
+      "why": "unknown block",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "carousel"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "container without children",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "stack"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "progress out of range",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "progress",
+              "value": 78
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "chart with text values",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "chart",
+              "labels": [
+                "a"
+              ],
+              "values": [
+                "x"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "update without id",
+      "answer": {
+        "update": [
+          {
+            "tone": "blue"
+          }
+        ]
+      }
+    },
+    {
+      "why": "choice without options",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "choice"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "empty answer",
+      "answer": {}
+    },
+    {
+      "why": "remember an object",
+      "answer": {
+        "remember": [
+          {
+            "fact": 1
+          }
+        ]
+      }
+    },
+    {
+      "why": "list without items",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "list"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "progress value given as text",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "progress",
+              "value": "#ff0000"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "list items without titles",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "list",
+              "items": [
+                {
+                  "text": "x"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "quiz without options",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "choice",
+              "question": "Q?"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "chart with made-up text values",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "chart",
+              "values": [
+                "high",
+                "low"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "schedule slot without a time",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "list",
+              "kind": "schedule",
+              "days": [
+                {
+                  "day": "MON",
+                  "slots": [
+                    {
+                      "subject": "AI"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "schedule without days",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "list",
+              "kind": "schedule"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "timetable as plain day rows without per-class slots",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "stack",
+              "children": [
+                {
+                  "type": "text",
+                  "style": "title",
+                  "text": "Week timetable"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "title": "MON",
+                      "detail": "AI · CS",
+                      "meta": "9:00 AM - 3:50 PM"
+                    },
+                    {
+                      "title": "TUE",
+                      "detail": "AI · CS",
+                      "meta": "9:00 AM - 3:50 PM"
+                    },
+                    {
+                      "title": "WED",
+                      "detail": "AI · CS",
+                      "meta": "9:00 AM - 3:50 PM"
+                    },
+                    {
+                      "title": "THU",
+                      "detail": "AI · CS",
+                      "meta": "9:00 AM - 3:50 PM"
+                    },
+                    {
+                      "title": "FRI",
+                      "detail": "AI · CS",
+                      "meta": "9:00 AM - 3:50 PM"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "why": "schedule with no classes in any day",
+      "answer": {
+        "create": [
+          {
+            "ui": {
+              "type": "list",
+              "kind": "schedule",
+              "days": [
+                {
+                  "day": "MON",
+                  "slots": []
+                },
+                {
+                  "day": "TUE",
+                  "slots": []
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

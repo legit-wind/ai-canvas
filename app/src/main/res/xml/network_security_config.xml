@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android can't limit plain http to "local network" IP ranges here, so cleartext is permitted at
+     this level and the app enforces the rule itself: every built-in address is https, and a custom
+     AI Base URL may only use http for local servers (see ai/BaseUrls.kt). User-added CAs are not trusted. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

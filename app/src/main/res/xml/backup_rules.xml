@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11 and older: back up cards, memories and reminders, and nothing else: not the settings
+     (they hold the encrypted API key, which can't be decrypted on another phone anyway). -->
+<full-backup-content>
+    <include domain="file" path="elements.json" />
+    <include domain="file" path="memories.json" />
+    <include domain="file" path="reminders.json" />
+    <include domain="file" path="tasks.json" />
+    <include domain="file" path="habits.json" />
+    <include domain="file" path="countdowns.json" />
+</full-backup-content>

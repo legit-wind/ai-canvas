@@ -1,0 +1,136 @@
+{
+ "type": "list",
+ "kind": "schedule",
+ "title": "\ud83d\udcf8 Week timetable",
+ "days": [
+  {
+   "day": "MON",
+   "slots": [
+    {
+     "time": "8:00-8:50",
+     "subject": "AI"
+    },
+    {
+     "time": "9:00-9:50",
+     "subject": "CS"
+    },
+    {
+     "time": "10:00-10:50",
+     "subject": "CE"
+    },
+    {
+     "time": "11:00-11:50",
+     "subject": "VLSI"
+    },
+    {
+     "time": "1:00-1:50",
+     "subject": "Lunch"
+    },
+    {
+     "time": "2:00-3:50",
+     "subject": "DSP LAB"
+    }
+   ]
+  },
+  {
+   "day": "TUE",
+   "slots": [
+    {
+     "time": "9:00-9:50",
+     "subject": "CE"
+    },
+    {
+     "time": "10:00-10:50",
+     "subject": "VLSI"
+    },
+    {
+     "time": "11:00-11:50",
+     "subject": "DSP"
+    },
+    {
+     "time": "1:00-1:50",
+     "subject": "Lunch"
+    },
+    {
+     "time": "2:00-4:50",
+     "subject": "CE LAB"
+    },
+    {
+     "time": "5:00-5:50",
+     "subject": "AI"
+    }
+   ]
+  },
+  {
+   "day": "WED",
+   "slots": [
+    {
+     "time": "9:00-9:50",
+     "subject": "VLSI"
+    },
+    {
+     "time": "10:00-10:50",
+     "subject": "DSP"
+    },
+    {
+     "time": "11:00-11:50",
+     "subject": "HM"
+    },
+    {
+     "time": "12:00-12:50",
+     "subject": "CS"
+    },
+    {
+     "time": "1:00-1:50",
+     "subject": "Lunch"
+    }
+   ]
+  },
+  {
+   "day": "THU",
+   "slots": [
+    {
+     "time": "8:00-8:50",
+     "subject": "AI"
+    },
+    {
+     "time": "9:00-9:50",
+     "subject": "DSP"
+    },
+    {
+     "time": "10:00-10:50",
+     "subject": "HM"
+    },
+    {
+     "time": "11:00-11:50",
+     "subject": "CS"
+    },
+    {
+     "time": "12:00-12:50",
+     "subject": "CE"
+    },
+    {
+     "time": "1:00-1:50",
+     "subject": "Lunch"
+    }
+   ]
+  },
+  {
+   "day": "FRI",
+   "slots": [
+    {
+     "time": "9:00-9:50",
+     "subject": "HM"
+    },
+    {
+     "time": "10:00-10:50",
+     "subject": "CS"
+    },
+    {
+     "time": "11:00-11:50",
+     "subject": "CE"
+    }
+   ]
+  }
+ ]
+}

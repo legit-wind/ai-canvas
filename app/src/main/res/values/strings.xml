@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AI Canvas</string>
+    <string name="shortcut_talk">Talk</string>
+    <string name="shortcut_talk_long">Talk to AI Canvas</string>
+    <string name="shortcut_type">Type</string>
+    <string name="shortcut_type_long">Tell AI Canvas something</string>
+</resources>

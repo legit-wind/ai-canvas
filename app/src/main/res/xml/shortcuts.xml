@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Long-press the launcher icon: "Talk" opens voice input, "Type" opens the chat. -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="talk"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_talk"
+        android:shortcutLongLabel="@string/shortcut_talk_long">
+        <intent
+            android:action="com.aicanvas.app.TALK"
+            android:targetPackage="com.aicanvas.app"
+            android:targetClass="com.aicanvas.app.MainActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="type"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_type"
+        android:shortcutLongLabel="@string/shortcut_type_long">
+        <intent
+            android:action="com.aicanvas.app.TYPE"
+            android:targetPackage="com.aicanvas.app"
+            android:targetClass="com.aicanvas.app.MainActivity" />
+    </shortcut>
+</shortcuts>

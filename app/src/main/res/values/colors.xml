@@ -1,0 +1,7 @@
+<resources>
+    <color name="canvas_bg">#FFFFFFFF</color>
+    <color name="icon_bg">#FF111113</color>
+    <color name="widget_bg">#FFFFFFFF</color>
+    <color name="widget_text">#FF111111</color>
+    <color name="widget_muted">#FF6E6E73</color>
+</resources>
